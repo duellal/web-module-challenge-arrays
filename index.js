@@ -240,7 +240,11 @@ function getRandomFlavors(array1, array2, array3, array4) {
 		}
 	}
 	return randomFlavors;
-} //this function does not create an array with completely unique values. I tried to delete the duplicates, but I could not completely figure out how to delete the duplicates and continue to add to the array until all 31 unique values were in the array
+} 
+//this function does not create an array with completely unique values. 
+//I tried to delete the duplicates, but I could not completely figure out how to delete the duplicates and continue to add to the array until all 31 unique values were in the array
+//The problem stated above does not indicate that you need to delete duplicates, but if a company wants to use this function, I am sure they will want duplicates deleted so they have a complete list of unique 31 flavors
+
 
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
 // const newFlavors = [
