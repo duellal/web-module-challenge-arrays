@@ -46,10 +46,10 @@ Use the copy function below to do the following:
 */
 
 
-function copy(/*your code here*/){
-  /*your code here*/
+function copy(array){
+  const copiedArray = [...array]
+  return copiedArray
 }
-
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -63,8 +63,14 @@ For Example: is31Flavors(originalFlavors) will return true if your code is worki
 */
 
 
-function is31Flavors(/*your code here*/){
-  /*your code here*/
+function is31Flavors(array){
+  for(let i = 0; i < array.length; i++){
+    if(array.length===31){
+      return true
+    }
+    else{return false
+    }
+  }
  }
 
 
@@ -82,8 +88,9 @@ Use the addFlavor function below to do the following:
 */
 
 
-function addFlavor(/*your code here*/){
-  /*your code here*/
+function addFlavor(array, newFlavor){
+  array.unshift(newFlavor)
+  return array
  }
 
 
@@ -100,8 +107,9 @@ Use the removeLastFlavor function below to do the following:
 */
 
 
-function removeLastFlavor(/*your code here*/){
- /*your code here*/
+function removeLastFlavor(array){
+ array.pop()
+ return array
 }
 
 
@@ -118,8 +126,12 @@ Use the getFlavorByIndex function below to do the following:
 */
 
 
-function getFlavorByIndex(/*your code here*/){
-  /*your code here*/
+function getFlavorByIndex(array, index){
+  for(let i = 0; i < array.length; i++){
+    if(array[i] === array[index]){
+      return array[i]
+    }
+  }
 }
 
 
@@ -138,10 +150,18 @@ Use the removeFlavorByName function below to do the following:
   HINT: You can use .splice() for this
 */
 
-function removeFlavorByName(/*your code here*/){
-  /*your code here*/
+function removeFlavorByName(array, flavor) {
+	for (let i = 0; i < array.length; i++) {
+		if (flavor === array[i]) {
+			array.splice(i, 1);
+		}
+	}
+	return array
 }
 
+console.log(removeFlavorByName(originalFlavors, "Black Walnut"));
+
+//Need Jessica's help on: - works for most flavors but not chocolate or vanilla for some reason
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -163,10 +183,15 @@ Use the filterByWord function below to do the following:
 */
 
 
-function filterByWord(/*your code here*/){
-  /*your code here*/
+function filterByWord(array, string){
+  const filteredArray = [];
+  for(let i = 0; i < array.length; i++){
+    if(array[i].includes(string)){
+      filteredArray.push(array[i])
+    }
+  }
+  return filteredArray
 }
-
 
 
 /* 💪💪💪💪💪🧁🍦🍨 STRETCH 🍨🍦🍫💪💪💪💪💪*/ 
@@ -181,8 +206,13 @@ Use the getAverageWordLength function below to do the following:
   For example: getAverageWordLength(originalFlavors) should return a number between 0 and 3.     
 */
 
-function getAverageWordLength(/*code here*/){
-  /*code here*/
+function getAverageWordLength(array){
+	const wordLength = []
+  for(let i = 0; i < array.length; i++){
+		let length = array[i].split(' ').length;
+		wordLength.push(length)
+	}
+	return wordLength.reduce((a, b) => a + b) / wordLength.length
 }
 
 
@@ -199,9 +229,22 @@ Use the getRandomFlavors function and new arrays below to do the following:
 */
 
 
-function getRandomFlavors(/*code here*/){
-  /*code here*/
-}
+function getRandomFlavors(array1, array2, array3, array4) {
+	const combinedArray = array1.concat(array2, array3, array4);
+	const randomFlavors = [];
+	for (let i = 0; i < combinedArray.length; i++) {
+		if (randomFlavors.length < 31) {
+			let randomElement = Math.floor(Math.random() * combinedArray.length);
+			let randomFlavor = combinedArray[randomElement]
+			randomFlavors.push(randomFlavor);
+		}
+	}
+	return randomFlavors;
+} 
+//this function does not create an array with completely unique values. 
+//I tried to delete the duplicates, but I could not completely figure out how to delete the duplicates and continue to add to the array until all 31 unique values were in the array
+//The problem stated above does not indicate that you need to delete duplicates, but if a company wants to use this function, I am sure they will want duplicates deleted so they have a complete list of unique 31 flavors
+
 
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
 // const newFlavors = [
